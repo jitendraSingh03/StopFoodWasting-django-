@@ -1,0 +1,189 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--===============================================================================================-->	
+      <link rel="icon" type="image/png" href="{% static 'fullSite/login/images/icons/favicon.ico' %}"/>
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->	
+      <link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/css/util.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/css/main.css' %}">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>food wastage</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">Your profile</h4>
+          <p class="text-white">Username : {{ user.username }}<br> Email : {{ user.email }}</p>
+          <a href="{% url 'logout' %}" class="navbar-brand d-flex align-items-center">
+            <strong>logout</strong>
+          </a>
+        </div>
+
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="mailto:bukh.foodwastage@gmail.com" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>Food wastage (work place)</strong>
+      </a>
+      <form action="{% url 'userpost' %}" method="POST">
+        {% csrf_token %} 
+        <input type="text" name="username" value="{{user.username}}" style="visibility: hidden">
+        <button type="submit" class="navbar-brand d-flex align-items-center" style="color:white;background-color: black;border:1.4px solid white;border-radius: 15px;padding: 5px 10px 5px 10px;">Add Post</button>
+      </form>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+     </div>
+</header> 
+
+      <div style="text-align: center;"><br><h2>See all order</h2><br></div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>order id.</th>
+              <th>Custom</th>
+              <th>phone1</th>
+              <th>event(date)</th>
+              <th>City/Landmark</th>
+              <th>Complete by</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+              {% for i in order %}
+            <tr>
+              <td>  {{ i.orderid }}</td>
+              <td>{{ i.personname }}</td>
+              <td>{{ i.personphone }} /<br> {{ i.othernumber }}</td>
+              <td>{{ i.eventdate }}</td>
+              <td>{{ i.eventcity }} / {{ i.eventlandmark }}</td>
+              <td>{{ i.completedBy }}</td>
+              <td><p>{{ i.eventaddress }}</p></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <hr>
+
+      <div style="margin-left:4%;">
+         <h5>Step you fallow.</h5>
+          <ol>
+           <li>1.first see near place order.</li>
+           <li>2.Second conform order to event hoster</li>
+           <li>3.After all conformation go and collect food form there,also distribut them at same time or under 4-5 hours.</li>
+           <li>4.After distribution fill refund money form below,and tell us how much money you spend there.That we try to refund money to you.</li>
+           <li>5.<b>Note:</b>Money refund take some time and amount is not fixed.It totely depends on found available</li>
+          </ol>
+      </div>
+      <!-- this is refund form -->
+      <div class='row'>
+             <div class="col-lg-12 js-tilt">
+                <div class="col-md-2" style="padding-left:10%;padding-top:5%;">
+                    <form action="{% url 'thanks' %}" class="login100-form validate-form" method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}  
+                     <span class="login100-form-title">
+                       <h3 style="color:rgba(248, 12, 12, 0.479);">  Order Complete/Money refund</h3>
+                       </span>
+                       <div class="wrap-input100 validate-input" data-validate = "userName is required:">
+                           <input class="input100" type="text" name="orid" placeholder="Enter order ID" required>
+                       </div>
+                       <div class="wrap-input100 validate-input" data-validate = "Valid email is required:">
+                         <input class="input100" type="text" name="amount" placeholder="Enter amount refund" required>
+                       </div>
+                       <input type="file" name="image1" style="border-radius: 10px;" required><br><br>
+                       <input type="file" name="image2" style="border-radius: 10px;" required>
+                       <input type="text" name="username" value="{{ user.username }}" style="border-radius: 10px;" hidden>
+                       <br><br>
+                       <input type="checkbox" required>Add one image of event hoster and add another image of the place where you destribute food.
+                       <div class="container-login100-form-btn">
+                         <button class="login100-form-btn">
+                           Order complete
+                         </button>
+                       </div> 
+                       <div>
+                         <b>Note:</b>Make sure you complete oder befor filling form.If owr authority find some miss guidenss then.your account should be delete.
+                       </div> 
+                   </form>
+                 </div>
+                </div>
+                <!-- for adminstartion message -->
+              <!-- <div class="col-md-2" style="padding-left:10%;padding-top:5%;border:1.2px solid rgb(85, 81, 81);width: 300px;text-align: center;padding:10px"> 
+                  <span class="login100-form-title" >
+                    <h3 style="color:rgba(248, 12, 12, 0.479);"> Adminstrations message for you</h3>
+                    </span>
+                    <div>
+                      <b>Note:</b>Make sure you complete oder befor filling form.If owr authority find some miss guidenss then.your account should be delete.
+                    </div> 
+                </form>
+              </div> -->
+            </div>
+        <div style="padding-left:10%;padding-top:5%;"></div>
+      <!-- end -->
+  <footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>This product web is &copy; 2019.</p> </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>

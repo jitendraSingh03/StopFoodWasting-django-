@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Food wastage</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'fullSite/login/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fullSite/login/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form action="{% url 'registration' %}" method="post" class="bg-white p-md-5 p-4 mb-5" style="margin-top: -150px;">
+					{% csrf_token %}
+					<center><h1><b>Registration</b></h1></center><br><br>
+					
+					<h4>Personal:</h4>
+					  <div class="row">
+						<div class="col-md-6 form-group">
+						  <label for="name">Name</label>
+						  <input type="text" name="name" class="form-control " required>
+						</div>
+						<div class="col-md-6 form-group">
+						  <label for="phone">Phone</label>
+						  <input type="text" name="phone" class="form-control " required>
+						</div>
+					  </div>
+				  
+					  <div class="row">
+							<div class="col-md-6 form-group">
+							  <label for="phone">other no: (optional)</label>
+							  <input type="text" name="phone2" class="form-control ">
+							</div>
+							<div class="col-md-6 form-group">
+							  <label for="name">Date of birth:(optional)</label>
+							  <input type="date" name="date" class="form-control " placeholder="">
+                        </div>
+							<div class="col-md-6 form-group">
+							  <label for="phone">City:</label>
+							  <input type="text" name="city" class="form-control " placeholder="" required>
+							</div>
+						  </div>
+						  <div class="row">
+							<div class="col-md-6 form-group">
+							  <label for="phone">State:</label>
+							  <input type="text" name="state" class="form-control " required>
+							</div>
+							<div class="col-md-6 form-group">
+									<label for="phone">Landmark</label>
+									<input type="text" name="landmark" class="form-control " required>
+								  </div>
+					  </div>
+					  <div class="row">
+						<div class="col-md-12 form-group">
+						  <label for="message">Full address </label>
+						  <textarea name="address" class="form-control " cols="30" rows="8" required></textarea>
+						</div>
+					  </div>
+					  <div class="row">
+						<div class="col-md-6 form-group">
+						  <input type="submit" value="Submit" class="btn btn-primary">
+						</div>
+					  </div>
+					  <div>
+							<ol>
+								<li>1. From here you can join our team and do some social welfare work for society.</li>
+								<li>2. Fill all detail properly and currect. </li>
+							</ol>
+						</div>
+					</form>
+		
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="{% static 'fullSite/login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'fullSite/login/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'fullSite/login/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'fullSite/login/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'fullSite/login/vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

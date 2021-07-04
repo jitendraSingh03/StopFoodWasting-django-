@@ -1,0 +1,191 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Food wastage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400|Playfair+Display:400,700" rel="stylesheet">
+    
+        <link rel="stylesheet" href="{% static 'fullSite/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'fullSite/css/animate.css">
+        <link rel="stylesheet" href="{% static 'fullSite/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'fullSite/css/aos.css' %}">
+        
+        <link rel="stylesheet" href="{% static 'fullSite/fonts/ionicons/css/ionicons.min.css' %}">
+        <link rel="stylesheet" href="{% static 'fullSite/fonts/fontawesome/css/font-awesome.min.css' %}">
+    
+        <!-- Theme Style -->
+        <link rel="stylesheet" href="{% static 'fullSite/css/style.css' %}">
+      </head>
+      <body>
+    
+    <header class="site-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4 site-logo" data-aos="fade"><a href="{% url 'home' %}"><em>food wastage</em></a></div>
+          <div class="col-8">
+
+
+            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <!-- END menu-toggle -->
+
+            <div class="site-navbar js-site-navbar">
+              <nav role="navigation">
+                <div class="container">
+                  <div class="row full-height align-items-center">
+                    <div class="col-md-6">
+                      <ul class="list-unstyled menu">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'order' %}">Help them</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'contect' %}">Contact</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6 extra-info">
+                      <div class="row">
+                        <div class="col-md-6 mb-5">
+                          <h3>Contact Info</h3>
+                          <p>609 sector 14 Avas vikas colony,Agra <br>282007(U.P)India</p>
+                          <p>jitendrasikarwar987@gmail.com</p>
+                          <p>(+1) 8909786487</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- END head -->
+
+    <section class="site-hero overlay page-inside" style="background-image: url({% static 'fullSite/image/bg2.jpg' %})">
+      <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+          <div class="col-md-10 text-center">
+            <h1 class="heading" data-aos="fade-up">Contact us</h1>
+            <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">We wont some information about you and event.</p>
+          </div>
+        </div>
+        <!-- <a href="#" class="scroll-down">Scroll Down</a> -->
+      </div>
+    </section>
+    <!-- END section -->
+
+    
+    <section class="section bg-primary contact-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            
+            <form action="{% url 'order' %}" method="post" class="bg-white p-md-5 p-4 mb-5" style="margin-top: -150px;">
+            {% csrf_token %}
+            <h4>Personal:</h4>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="name">Name</label>
+                  <input type="text" name="name" class="form-control " required>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text" name="phone" class="form-control " required>
+                </div>
+              </div>
+          
+              <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="phone">other no.</label>
+                      <input type="text" name="phone2" class="form-control "required>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="name">Date of event</label>
+                      <input type="date" name="date" class="form-control " placeholder="dd/mm/yy" required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <label for="phone">Time in which team came</label>
+                      <input type="time" name="time" class="form-control " placeholder="e.g-> 11:30pm ">
+                    </div>
+                  </div>
+              <h4>Address(event place):</h4>
+              <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="phone">City</label>
+                      <input type="text" name="city" class="form-control " required>
+                    </div>
+                    <div class="col-md-6 form-group">
+                            <label for="phone">Landmark</label>
+                            <input type="text" name="landmark" class="form-control " required>
+                          </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="message">Event full address </label>
+                  <textarea name="add" class="form-control " cols="30" rows="8" required></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div class="col-md-5">
+            <div class="row">
+              <div class="col-md-10 ml-auto contact-info">
+                <p><span class="d-block">Address:</span> <span>Main office 609 sector 14 Avas vikas colony,Agra 282007(U.P) India</span></p>
+                <p><span class="d-block">Phone:</span> <span> (+91) 8909786487</span></p>
+                <p><span class="d-block">Email:</span> <span> jitendrasikarwar987@gmail.com</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+
+    <footer class="section footer-section">
+            <div class="container">
+              <div class="row mb-4">
+                <div class="col-md-3 mb-5">
+                  <ul class="list-unstyled link">
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                   <li><a href="{% url 'contect' %}">Help</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3 mb-5 pr-md-5 contact-info">
+                        <p><span class="d-block">Address:</span> <span>Main office 609 sector 14 Avas vikas colony,Agra 282007(U.P) India</span></p>
+                        <p><span class="d-block">Phone:</span> <span> (+91) 8909786487</span></p>
+                        <p><span class="d-block">Email:</span> <span> jitendrasikarwar987@gmail.com</span></p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Qrcode of Site </h3>
+                    <img src="{% static 'fullSite/image/WebSiteqr.png' %}">
+                  </div>
+              </div>
+            </div>
+          </footer>
+          
+          <script src="{% static 'fullSite/js/jquery-3.2.1.min.js' %}"></script>
+          <script src="{% static 'fullSite/js/popper.min.js' %}"></script>
+          <script src="{% static 'fullSite/js/bootstrap.min.js' %}"></script>
+          <script src="{% static 'fullSite/js/owl.carousel.min.js' %}"></script>
+          <script src="{% static 'fullSite/js/jquery.waypoints.min.js' %}"></script>
+          <script src="{% static 'fullSite/js/aos.js' %}"></script>
+          <script src="{% static 'fullSite/js/main.js' %}"></script>
+        </body>
+      </html>
